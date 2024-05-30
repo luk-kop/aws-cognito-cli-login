@@ -45,8 +45,9 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if 'ChallengeName' in auth_response:
+        # TODO: add challenge response support
         challenge_name: str = auth_response['ChallengeName']
-        # TODO: add supported challenges - enum ????
+        # TODO: add supported challenges (enum)
         supported_challenges = ['NEW_PASSWORD_REQUIRED', 'MFA_SETUP']
         if challenge_name == 'NEW_PASSWORD_REQUIRED':
             new_password: str = pwinput(prompt='New password: ')
@@ -60,8 +61,6 @@ if __name__ == '__main__':
                 'USERNAME': username,
                 'SESSION': session_id
             }
-
-        # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp/client/respond_to_auth_challenge.html
         response = client_idp.respond_to_auth_challenge(
             ClientId=COGNITO_CLIENT_ID,
             ChallengeName=challenge_name,
