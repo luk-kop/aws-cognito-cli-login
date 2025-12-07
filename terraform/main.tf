@@ -122,6 +122,13 @@ resource "aws_iam_role_policy" "authenticated" {
   })
 }
 
+# Attach custom policies to authenticated role
+resource "aws_iam_role_policy_attachment" "authenticated_custom" {
+  count      = length(var.authenticated_role_policy_arns)
+  role       = aws_iam_role.authenticated.name
+  policy_arn = var.authenticated_role_policy_arns[count.index]
+}
+
 # Attach Identity Pool Roles
 resource "aws_cognito_identity_pool_roles_attachment" "this" {
   identity_pool_id = aws_cognito_identity_pool.this.id

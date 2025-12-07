@@ -32,3 +32,9 @@ variable "user_pool_domain" {
     error_message = "Domain cannot contain reserved words: aws, cognito."
   }
 }
+
+variable "authenticated_role_policy_arns" {
+  description = "List of IAM policy ARNs to attach to the authenticated role"
+  type        = list(string)
+  default     = []
+}

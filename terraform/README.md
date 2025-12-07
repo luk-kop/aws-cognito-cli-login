@@ -31,6 +31,7 @@ No modules.
 | [aws_cognito_user_pool_domain.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cognito_user_pool_domain) | resource |
 | [aws_iam_role.authenticated](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy.authenticated](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy_attachment.authenticated_custom](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [random_string.domain_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
 ## Inputs
@@ -38,6 +39,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_tags"></a> [additional\_tags](#input\_additional\_tags) | Additional tags to set for all resources | `map(string)` | `{}` | no |
+| <a name="input_authenticated_role_policy_arns"></a> [authenticated\_role\_policy\_arns](#input\_authenticated\_role\_policy\_arns) | List of IAM policy ARNs to attach to the authenticated role | `list(string)` | `[]` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name (e.g., dev, staging, prod) | `string` | `"dev"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name prefix for Cognito resources | `string` | `"aws-cognito-cli-login"` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region in which resources will be deployed | `string` | `"eu-west-1"` | no |
