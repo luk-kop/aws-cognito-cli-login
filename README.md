@@ -140,6 +140,8 @@ Terraform outputs:
 
 ## How It Works
 
+![Authentication Flow](images/cognito-auth-flow.png)
+
 1. User authenticates with AWS Cognito User Pool using username/password
 2. Handles authentication challenges (new password, MFA setup, MFA verification)
 3. Receives ID token from successful authentication
